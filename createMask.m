@@ -1,4 +1,4 @@
-function [BW,maskedRGBImage] = hsv_railway(RGB)
+function [BW,maskedRGBImage] = createMask(RGB)
 %createMask  Threshold RGB image using auto-generated code from colorThresholder app.
 %  [BW,MASKEDRGBIMAGE] = createMask(RGB) thresholds image RGB using
 %  auto-generated code from the colorThresholder app. The colorspace and
@@ -14,16 +14,16 @@ function [BW,maskedRGBImage] = hsv_railway(RGB)
 I = rgb2hsv(RGB);
 
 % Define thresholds for channel 1 based on histogram settings
-channel1Min = 0.606;
-channel1Max = 0.121;
+channel1Min = 0.633;
+channel1Max = 0.184;
 
 % Define thresholds for channel 2 based on histogram settings
 channel2Min = 0.000;
-channel2Max = 0.272;
+channel2Max = 0.241;
 
 % Define thresholds for channel 3 based on histogram settings
-channel3Min = 0.000;
-channel3Max = 0.933;
+channel3Min = 0.456;
+channel3Max = 1.000;
 
 % Create mask based on chosen histogram thresholds
 sliderBW = ( (I(:,:,1) >= channel1Min) | (I(:,:,1) <= channel1Max) ) & ...
